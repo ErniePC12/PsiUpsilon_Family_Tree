@@ -42,7 +42,7 @@ function lookup_bigNew($id, $set=""){
         $result=mysqli_fetch_assoc(mySQLQueryNew("SELECT id, first_name,last_name,nickname,pledge_class, bigs FROM MEMBERS WHERE id = '$id'"));
 
         $set .= "<a href=\"#".$result['pledge_class']."\" style=\"white-space:nowrap;\">".$result['first_name']." ".$result['last_name']." (PC: ".$result['pledge_class'].")</a> ";
-        if ($result['bigs'] > '0'){ $set.=" -&gt; <br>".lookup_bigNew($result['bigs']); }
+//        if ($result['bigs'] > '0'){ $set.=" -&gt; <br>".lookup_bigNew($result['bigs']); }
     }
     return $set;
 }
