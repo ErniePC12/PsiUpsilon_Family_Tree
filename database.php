@@ -1,4 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <?php
 date_default_timezone_set('America/New_York');
 $start_time = explode(' ', microtime()); $start_time = $start_time[1] + $start_time[0];
