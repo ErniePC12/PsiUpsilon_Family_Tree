@@ -1,22 +1,34 @@
-/* Settings for the site. **********************************/
+/* Settings for the site. ********************************************/
 
 @deltaColor: 	#0D1C9D;
 @psiuColor:		#a71930;
 
-@pageFont:		"Verdana, Arial, Helvetica, sans-serif";
+@pageFont:		"Times, Verdana, Arial, Helvetica, sans-serif";
+@menuFont:		10pt;
 
 // saturate(@deltaColor, 50%)
-/**********************************************************/
+/*********************************************************************/
 
-
-body {background-color:#e6e6e6;font-family:serif;}
-
+/*********************************************************************/
+body {background-color:#e6e6e6;font-family:serif; /* background-image: svg-gradient(to right, red, green 30%, blue); */}
+.title {font-size:(@menuFont+8);}
+.timeSpent{position:fixed;bottom:0;font-size:@menuFont;}
+table{margin:0 auto;width:35em;}
+/*********************************************************************/
 .delta{color:@deltaColor;}
 .delta_line{color:@deltaColor;border-bottom: 2px solid @deltaColor;}
 .psiu{color:@psiuColor;}
 .psiu_line{ color:@psiuColor;border-bottom: 2px solid @psiuColor;}
+/*********************************************************************/
+.menuLink{ font-size:@menuFont; position:fixed; }
+.lastUpdated{ top:5px; left:5px; }
+.pageLinkUpper{ top:5px; right:5px; }
+.pageLinkLower{ top:20px; right:5px; }
+/*********************************************************************/
 
 .major_line, .minor_line{color:@deltaColor;border-bottom: 2px solid @psiuColor;padding-top:2mm;}
+
+
 
 a:link, a:hover, a:visited, a:active {color:#000;}
 
@@ -27,11 +39,6 @@ h3 { padding:0 0 1mm 0;margin:0 0 1mm 0;font-weight: bold;font-family: @pageFont
 .tree {border:thin solid transparent; padding:2mm 7mm;margin:0;font-size:10pt;}
 
 .key{border:thin solid transparent; font-size:9pt;padding:0;margin:0;font-weight: bold;}
-
-.menuLink{ font-size:10pt; position:fixed; }
-.lastUpdated{ top:5px; left:5px; }
-.pageLinkUpper{ top:5px; right:5px; }
-.pageLinkLower{ top:20px; right:5px; }
 
 td{ border-bottom:thin solid lightgrey;}
 
