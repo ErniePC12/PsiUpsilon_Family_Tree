@@ -1,0 +1,193 @@
+<html>
+<head><meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"></head>
+<body>
+<h5 align="right" style="color: gray; ">Snapshot on 2015-02-23 22:26:33</h5>
+<h3>Database: deltanupsi</h3>
+<br>
+<h4>big_little</h4>
+<table border=1 width=75%>
+<tr>
+	<th width=35%>Field</th>
+	<th width=30%>Type</th>
+	<th width=15%>Allow Null</th>
+	<th width=20%>Default Value</th>
+</tr>
+<tr>
+	<td width=35% style="text-decoration: underline"><em>id</em></td>
+	<td width=30%>int(1)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>big</td>
+	<td width=30%>int(5)</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>little</td>
+	<td width=30%>int(5)</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+</table>
+<br>
+<h4>members</h4>
+<table border=1 width=75%>
+<tr>
+	<th width=35%>Field</th>
+	<th width=30%>Type</th>
+	<th width=15%>Allow Null</th>
+	<th width=20%>Default Value</th>
+</tr>
+<tr>
+	<td width=35% style="text-decoration: underline"><em>id</em></td>
+	<td width=30%>int(2)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>first_name</td>
+	<td width=30%>varchar(30)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>last_name</td>
+	<td width=30%>varchar(30)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>maiden_name</td>
+	<td width=30%>varchar(30)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>nickname</td>
+	<td width=30%>varchar(128)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>pledge_class</td>
+	<td width=30%>varchar(9)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>bigs</td>
+	<td width=30%>char(10)</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>littles</td>
+	<td width=30%>int(1)</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>status</td>
+	<td width=30%>varchar(15)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>hometown</td>
+	<td width=30%>varchar(25)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>homestate</td>
+	<td width=30%>varchar(5)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>c_address</td>
+	<td width=30%>varchar(35)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>c_zip</td>
+	<td width=30%>varchar(5)</td>
+	<td width=15%>No</td>
+	<td width=20%>0</td>
+</tr>
+<tr>
+	<td width=35%>email</td>
+	<td width=30%>varchar(30)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>positions</td>
+	<td width=30%>varchar(25)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>major</td>
+	<td width=30%>varchar(60)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>minor</td>
+	<td width=30%>varchar(60)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>photo</td>
+	<td width=30%>longblob</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+</table>
+<br>
+<h4>pledge_class</h4>
+<table border=1 width=75%>
+<tr>
+	<th width=35%>Field</th>
+	<th width=30%>Type</th>
+	<th width=15%>Allow Null</th>
+	<th width=20%>Default Value</th>
+</tr>
+<tr>
+	<td width=35% style="text-decoration: underline"><em>id</em></td>
+	<td width=30%>int(2)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>name</td>
+	<td width=30%>varchar(20)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>season</td>
+	<td width=30%>enum('Spring','Fall')</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>pyear</td>
+	<td width=30%>year(4)</td>
+	<td width=15%>Yes</td>
+	<td width=20%></td>
+</tr>
+<tr>
+	<td width=35%>display</td>
+	<td width=30%>char(1)</td>
+	<td width=15%>No</td>
+	<td width=20%></td>
+</tr>
+</table>
+</body>
+</html>
