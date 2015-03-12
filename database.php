@@ -101,7 +101,6 @@ function lookup_Little($id, $set="")
 function debug($string, $array="no")
 {
     echo "<pre style=\"text-align:left;\">";
-    
     echo "</pre>";
     return 0;
 }
