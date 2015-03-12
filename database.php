@@ -8,7 +8,7 @@ function mySQLQueryNew($theQuery){
 	$DB_NAME = 'deltanupsi';
 	$DB_HOST = 'localhost';
 	$DB_USER = 'root';
-	$DB_PASS = 'tessa';
+	include "settings.php";
 	
 	$link = mysqli_connect($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 	if ($result = mysqli_query($link, $theQuery))
@@ -22,9 +22,7 @@ function mySQLQueryNew($theQuery){
 function mySQLQuery($theQuery) {
     $databaseHost = 'localhost';
     $databaseUser = 'root';
-    $databasePassword = 'tessa';
-/*  $databaseUser = 'deltanup_mfried'; */
-/*  $databasePassword = 'makaha'; */
+	include "settings.php";
     $databaseName = 'deltanupsi';
 
     $databaseConnection = mysqli_pconnect($databaseHost, $databaseUser, $databasePassword); // or die('Error Connecting To The MySQL Database!');
@@ -52,12 +50,12 @@ echo "<pre>";
     $big_array = array_merge($big_array,explode(",",$id) );
     $c=count($big_array);
 echo "</pre>";
-        
+
         foreach ($big_array as &$row_big ){
-            $result=mysql_fetch_assoc(mySQLQueryNew("SELECT id, first_name,last_name,nickname,pledge_class, bigs FROM MEMBERS WHERE id = '$row_big'"));
+            $result=mysqli_fetch_assoc(mySQLQueryNew("SELECT id, first_name,last_name,nickname,pledge_class, bigs FROM MEMBERS WHERE id = '$row_big'"));
 //            $result=mysql_fetch_assoc(mySQLQuery("SELECT id, first_name,last_name,nickname,pledge_class, bigs FROM MEMBERS WHERE id = '$row_big'"));
             $set .= "<a href=\"#".$result['pledge_class']."\" style=\"white-space:nowrap;\">".$result['first_name']." ".$result['last_name']." (PC: ".$result['pledge_class'].")</a> ";
-            if ($result['bigs'] > '0'){ $set.=" -&gt; <br>".lookup_bigs($result['bigs']); } else {$set .= "<br><br>";}
+            if ($result['bigs'] < '1'){ $set.="<br>	<br>".lookup_bigs($result['bigs']); } else {$set .= "<br><br>";}
         }
 //        print_r($combined_array);
     }
@@ -84,6 +82,22 @@ function lookup_familyNew($id, $set=""){
     return $set;
 }
 /********************************************************************************************************************************************************/
+function lookup_Little($id, $set="")
+{
+	$sql = "SELECT id, big, BigMember, BigPC, little, LittleMember, LittlePC FROM big_little_listing WHERE big = '".$id."' ORDER BY BigMember ASC, LittlePC DESC";
+	$result=mySQLQueryNew($sql);
+    $num = $result->num_rows;
+    
+    if ($num > '0') {
+	    while ($family = mysqli_fetch_assoc($result)){
+			$set .= "<a href=\"#".$family['LittlePC']."\" style=\"white-space:nowrap;\">".$family['LittleMember']." "." (PC: ".$family['LittlePC'].")</a> ";
+			if ($num >= '1'){ $set.=" <br> "; }
+		}
+	}
+    
+	return $set;
+}
+/********************************************************************************************************************************************************/
 function debug($string, $array="no")
 {
     echo "<pre style=\"text-align:left;\">";
@@ -91,12 +105,13 @@ function debug($string, $array="no")
     echo "</pre>";
     return 0;
 }
+/********************************************************************************************************************************************************/
 function mySQLQueryBackup($theQuery){
 // CONNECT TO THE DATABASE
 	$DB_NAME = 'deltanupsi';
 	$DB_HOST = 'localhost';
 	$DB_USER = 'root';
-	$DB_PASS = 'tessa';
+	include "settings.php";
 	
 	echo '<pre>';
 	
@@ -194,7 +209,8 @@ function lookup_family($id, $set=""){
 /********************************************************************************************************************************************************/
 function lookup_big($id, $set=""){
     if (($id != '') && ($id != '0')){
-        $result=mysql_fetch_assoc(mySQLQuery("SELECT id, first_name,last_name,nickname,pledge_class, bigs FROM MEMBERS WHERE id = '$id'"));
+	    print $id;
+        $result=mysqli_fetch_assoc(mySQLQuery("SELECT id, first_name,last_name,nickname,pledge_class, bigs FROM MEMBERS WHERE id = '$id'"));
         
         $set .= "<a href=\"#".$result['pledge_class']."\" style=\"white-space:nowrap;\">".$result['first_name']." ".$result['last_name']." (PC: ".$result['pledge_class'].")</a> ";
         if ($result['bigs'] > '0'){ $set.=" -&gt; <br>".lookup_big($result['bigs']); }
