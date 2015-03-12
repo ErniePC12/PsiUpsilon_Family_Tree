@@ -5,6 +5,7 @@
 
 @pageFont:		"Times, Verdana, Arial, Helvetica, sans-serif";
 @menuFont:		10pt;
+@menuPosition:	5px;
 
 // saturate(@deltaColor, 50%)
 /*********************************************************************/
@@ -22,8 +23,10 @@ table{margin:0 auto;width:35em;}
 /*********************************************************************/
 .menuLink{ font-size:@menuFont; position:fixed; }
 .lastUpdated{ top:5px; left:5px; }
-.pageLinkUpper{ top:5px; right:5px; }
-.pageLinkLower{ top:20px; right:5px; }
+.pageLinkClass{ 	top:@menuPosition; 		right:5px; }
+.pageLinkMajor{ 	top:(@menuPosition+15); right:5px; }
+.pageLinkMinor{ 	top:(@menuPosition+30); right:5px; }
+.pageLinkSponsor{ 	top:(@menuPosition+45); right:5px; }
 /*********************************************************************/
 
 .major_line, .minor_line{color:@deltaColor;border-bottom: 2px solid @psiuColor;padding-top:2mm;}
@@ -36,6 +39,7 @@ h3 { padding:0 0 1mm 0;margin:0 0 1mm 0;font-weight: bold;font-family: @pageFont
 
 .left_side { padding:0 5mm; text-align:left; white-space:nowrap;}
 .right_side { white-space:nowrap; }
+.left_sponsor,.right_sponsor{text-align: center; padding: 2mm 0;}
 .tree {border:thin solid transparent; padding:2mm 7mm;margin:0;font-size:10pt;}
 
 .key{border:thin solid transparent; font-size:9pt;padding:0;margin:0;font-weight: bold;}
