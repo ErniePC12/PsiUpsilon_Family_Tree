@@ -55,7 +55,7 @@ echo "</pre>";
             $result=mysqli_fetch_assoc(mySQLQueryNew("SELECT id, first_name,last_name,nickname,pledge_class, bigs FROM MEMBERS WHERE id = '$row_big'"));
 //            $result=mysql_fetch_assoc(mySQLQuery("SELECT id, first_name,last_name,nickname,pledge_class, bigs FROM MEMBERS WHERE id = '$row_big'"));
             $set .= "<a href=\"#".$result['pledge_class']."\" style=\"white-space:nowrap;\">".$result['first_name']." ".$result['last_name']." (PC: ".$result['pledge_class'].")</a> ";
-            if ($result['bigs'] < '1'){ $set.="<br>	<br>".lookup_bigs($result['bigs']); } else {$set .= "<br><br>";}
+            if ($result['bigs'] < '1'){ $set.="<br>".lookup_bigs($result['bigs']); } else {$set .= "<br><br>";}
         }
 //        print_r($combined_array);
     }
@@ -101,11 +101,12 @@ function lookup_Little($id, $set="")
 function debug($string, $array="no")
 {
     echo "<pre style=\"text-align:left;\">";
+    
     echo "</pre>";
     return 0;
 }
 /********************************************************************************************************************************************************/
-function mySQLQueryBackup($theQuery){
+function mySQLQueryBackup($theQuery){ 
 // CONNECT TO THE DATABASE
 	$DB_NAME = 'deltanupsi';
 	$DB_HOST = 'localhost';
